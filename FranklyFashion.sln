@@ -11,6 +11,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FranklyFashion.OrderService
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FranklyFashion.OrderProcessor", "FranklyFashion.OrderProcessor\FranklyFashion.OrderProcessor.csproj", "{F52F45B4-3148-4D81-A9F5-23F38ECE5A44}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FranklyFashion.WebApp", "FranklyFashion.WebApp\FranklyFashion.WebApp.csproj", "{58E1F892-06E9-4F9F-B69C-152E1983D82B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FranklyFashion.StockService", "FranklyFashion.StockService\FranklyFashion.StockService.csproj", "{0D8779AD-091F-4138-B709-BD2C10677854}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +37,14 @@ Global
 		{F52F45B4-3148-4D81-A9F5-23F38ECE5A44}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F52F45B4-3148-4D81-A9F5-23F38ECE5A44}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F52F45B4-3148-4D81-A9F5-23F38ECE5A44}.Release|Any CPU.Build.0 = Release|Any CPU
+		{58E1F892-06E9-4F9F-B69C-152E1983D82B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58E1F892-06E9-4F9F-B69C-152E1983D82B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58E1F892-06E9-4F9F-B69C-152E1983D82B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58E1F892-06E9-4F9F-B69C-152E1983D82B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0D8779AD-091F-4138-B709-BD2C10677854}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D8779AD-091F-4138-B709-BD2C10677854}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D8779AD-091F-4138-B709-BD2C10677854}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D8779AD-091F-4138-B709-BD2C10677854}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
