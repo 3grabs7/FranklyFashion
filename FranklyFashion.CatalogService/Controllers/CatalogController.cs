@@ -14,18 +14,18 @@ public class CatalogController : ControllerBase
     }
 
 
-    [HttpGet("products")]
-    public IEnumerable<ProductListDTO> GetAll()
+    [HttpGet]
+    public IEnumerable<ProductSingleDTO> GetAll()
     {
         var products = _context.Products;
-        return products.Select(s => _mapper.Map<ProductListDTO>(s));
+        return products.Select(s => _mapper.Map<ProductSingleDTO>(s));
     }
 
     [HttpGet("{productId}")]
-    public ProductListDTO Get(int productId)
+    public ProductSingleDTO Get(int productId)
     {
         var product = _context.Products.Single(p => p.Id == productId);
-        return _mapper.Map<ProductListDTO>(product);
+        return _mapper.Map<ProductSingleDTO>(product);
     }
 
     [HttpPost]
@@ -42,5 +42,33 @@ public class CatalogController : ControllerBase
         return _mapper.Map<ProductCreatedDTO>(createdProduct.Entity);
     }
 
+
+    //// using a dictionary when parsing product name
+    //// makes changing parsing approach more manageble
+    //public async Task<ProductCreatedDTO> Post2(ProductCreateDTO productCreateDto)
+    //{
+    //    Dictionary<string, string> productNameParseDictionary = new()
+    //    {
+    //        ["-"] = "",
+    //        [" "] = "-",
+    //    };
+
+    //    var createdProduct = await _context.AddAsync(_mapper.Map<Product>(productCreateDto));
+
+    //    createdProduct.Entity.UrlSlug = Regex.Replace(
+    //        productCreateDto.Name, $"\\s|[{String.Concat(productNameParseDictionary.Keys)}]",
+    //        m => productNameParseDictionary[m.Value]
+    //        );
+
+    //    await _context.SaveChangesAsync();
+
+    //    return _mapper.Map<ProductCreatedDTO>(createdProduct.Entity);
+    //}
+
 }
+
+
+
+
+
 

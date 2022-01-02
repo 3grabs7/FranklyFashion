@@ -1,5 +1,5 @@
 ﻿namespace FranklyFashion.CatalogService.Models;
-public class ProductListDTO
+public class ProductSingleDTO
 {
     public int Id { get; set; }
     public string Name { get; set; }
