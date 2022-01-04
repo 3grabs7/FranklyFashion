@@ -1,9 +1,4 @@
-﻿
-
-using FranklyFashion.OrderService.Models;
-using System.Text.Json;
-
-namespace FranklyFashion.OrderService.Controllers;
+﻿namespace FranklyFashion.OrderService.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
@@ -37,20 +32,19 @@ public class OrderController : ControllerBase
             });
 
         if (basket?.Identifier == null)
-            return NotFound();
+            return NotFound(new { message = "Basket not found" });
         if (basket.BasketItems == null)
-            return BadRequest();
+            return NotFound(new { message = "Basket is empty" });
 
-        var newOrder = await _context.Orders.AddAsync(
-            new Order
-            {
-                Customer = order.Customer,
-                OrderLines = basket.BasketItems.Select(b => _mapper.Map<OrderLine>(b)).ToList()
-            });
+        var createdOrder = await _context.Orders.AddAsync(new Order()
+        {
+            Customer = order.Customer,
+            OrderLines = basket.BasketItems.Select(b => _mapper.Map<OrderLine>(b)).ToList()
+        });
 
         await _context.SaveChangesAsync();
 
-        return Created("", new OrderCreatedDTO { OrderId = newOrder.Entity.Id, });
+        return Created("", new OrderCreatedDTO { OrderId = createdOrder.Entity.Id, });
     }
 
 
